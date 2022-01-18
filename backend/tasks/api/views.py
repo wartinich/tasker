@@ -1,5 +1,5 @@
 from rest_framework import generics
-from tasks.api.serializers import TaskSerializer
+from tasks.api.serializers import TaskSerializer, UpdateTaskSerializer
 from tasks.models import Task
 
 
@@ -16,3 +16,9 @@ class TaskListView(generics.ListAPIView):
     #User Task list
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+
+class UpdateTaskView(generics.UpdateAPIView):
+    #Update task
+    queryset = Task.objects.all()
+    serializer_class = UpdateTaskSerializer
