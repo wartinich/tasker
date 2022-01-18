@@ -1,4 +1,4 @@
-from users.api.serializers import UserProfileSerializer
+from users.api.serializers import UserProfileSerializer, UpdateUserProfileSerializer
 from rest_framework import generics
 from users.models import User
 
