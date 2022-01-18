@@ -11,3 +11,10 @@ class UserDetailView(generics.RetrieveAPIView):
     #     return User.objects.filter(id=self.request.user.id)
 
     lookup_field = 'id'
+
+
+class UpdateUserView(generics.UpdateAPIView):
+    serializer_class = UpdateUserProfileSerializer
+    queryset = User.objects.all()
+
+    

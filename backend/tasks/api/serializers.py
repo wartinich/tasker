@@ -4,7 +4,7 @@ from users.api.serializers import UserProfileSerializer
 
 
 class TaskSerializer(serializers.ModelSerializer):
-    user = UserProfileSerializer(many=True)
+    user = UserProfileSerializer()
     class Meta:
         model = Task
         fields = ['id', 'title', 'user', 'date', 'done']
