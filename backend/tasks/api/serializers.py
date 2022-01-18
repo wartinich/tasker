@@ -3,11 +3,16 @@ from tasks.models import Task
 from users.api.serializers import UserProfileSerializer
 
 
-class TaskSerializer(serializers.ModelSerializer):
-    user = UserProfileSerializer()
+class CreateTaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'title', 'user', 'date', 'done']
+        fields = ['id', 'title', 'date', 'done']
+
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['id', 'user','title', 'date', 'done']
 
 
 class UpdateTaskSerializer(serializers.ModelSerializer):

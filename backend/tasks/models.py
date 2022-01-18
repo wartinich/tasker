@@ -14,5 +14,7 @@ class Task(models.Model):
     date = models.DateField(verbose_name='Date', default=timezone.now())
     done = models.BooleanField(verbose_name='Done', default=False)
 
+    #datetime.date.today()
+
     def __str__(self):
-        return self.user
+        return self.title
