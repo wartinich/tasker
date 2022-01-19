@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils import timezone
 from users.models import User
+import datetime
 
 
 class Task(models.Model):
@@ -11,10 +11,8 @@ class Task(models.Model):
         verbose_name='User',
         related_name='user'
     )
-    date = models.DateField(verbose_name='Date', default=timezone.now())
+    date_of_done = models.DateField(verbose_name='Date', default=datetime.datetime.today())
     done = models.BooleanField(verbose_name='Done', default=False)
-
-    #datetime.date.today()
 
     def __str__(self):
         return self.title

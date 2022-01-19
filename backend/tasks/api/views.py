@@ -16,9 +16,9 @@ class CreateTaskView(generics.CreateAPIView):
 
 class TaskListView(generics.ListAPIView):
     #User Task list
-    permission_classes = [permissions.IsAuthenticated]
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)
@@ -28,3 +28,9 @@ class UpdateTaskView(generics.UpdateAPIView):
     #Update task
     queryset = Task.objects.all()
     serializer_class = UpdateTaskSerializer
+
+
+class DestroyTaskView(generics.DestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    permission_classes = [permissions.IsAuthenticated]
